@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="100dp"
+    android:id="@+id/MakerDescription"
+    android:background="@drawable/selector">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Example Item"
+        android:id="@+id/itemName"
+        android:singleLine="false"
+        android:layout_marginLeft="15dp"
+        android:layout_marginStart="24dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="25dp"
+        android:layout_toStartOf="@+id/starDark"
+        android:textSize="20dp"
+        android:maxLines="1"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@+id/starDark" />
+
+    <net.steamcrafted.materialiconlib.MaterialIconView
+
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        app:materialIcon="star"
+        app:materialIconColor="@android:color/darker_gray"
+        app:materialIconSize="24dp"
+        android:scaleType="center"
+        android:id="@+id/starDark"
+        android:layout_centerVertical="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentRight="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="This is just example test, and a fair amount of it too in order to make sure that this layout will look good it something huge is pasted in for the description variable or something, because I think it has a 2 line maximum."
+        android:id="@+id/itemDescription"
+        android:layout_below="@+id/itemName"
+        android:layout_alignStart="@+id/itemName"
+        android:layout_toStartOf="@+id/starDark"
+        android:maxLines="2"
+        android:layout_alignLeft="@+id/itemName"
+        android:layout_toLeftOf="@+id/starDark" />
+
+</RelativeLayout>
