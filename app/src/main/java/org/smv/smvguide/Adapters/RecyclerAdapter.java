@@ -24,7 +24,7 @@ import tyrantgit.explosionfield.ExplosionField;
 
 
 /**
- * Created by Rhey Igou on 12/15/2015.
+ * Created by Rhey Igou 9/26/2016.
  */
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
 

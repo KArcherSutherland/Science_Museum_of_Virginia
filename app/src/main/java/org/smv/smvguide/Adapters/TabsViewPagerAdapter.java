@@ -1,7 +1,7 @@
 package org.smv.smvguide.Adapters;
 
 /**
- * Created by root on 9/26/16.
+ * Created by Rhey Igou 9/26/2016.
  */
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

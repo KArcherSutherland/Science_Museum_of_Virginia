@@ -27,6 +27,10 @@ import org.smv.smvguide.Util.SlidingTabLayout;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
+/**
+ * Created by Rhey Igou 9/26/2016.
+ */
+
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener{
