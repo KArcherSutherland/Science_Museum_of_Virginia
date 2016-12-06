@@ -4,8 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +15,9 @@ import android.widget.TextView;
 import net.steamcrafted.materialiconlib.MaterialIconView;
 
 
+import org.smv.smvguide.Activities.ScrollingPostActivity;
 import org.smv.smvguide.R;
+import org.smv.smvguide.rest.models.Results;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,15 +31,15 @@ import tyrantgit.explosionfield.ExplosionField;
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
 
     public static Context mContext;
-    private static List<String> mStrings;
+    private static List<Results> mPosts;
     private static List<Boolean> mFavorites;
     private static OnFavoriteListener sOnFavoriteCallback;
 
-    public RecyclerAdapter(List<String> mStrings, Context context, OnFavoriteListener callback) {
+    public RecyclerAdapter(List<Results> mNewPosts, Context context, OnFavoriteListener callback) {
         mContext = context;
-        this.mStrings = (mStrings != null) ? mStrings : new ArrayList<String>();
+        this.mPosts = mNewPosts;
         this.mFavorites = new ArrayList<>();
-        for (int i = 0; i < mStrings.size(); i++){
+        for (int i = 0; i < RecyclerAdapter.mPosts.size(); i++){
             mFavorites.add(i % 2 == 0 ? true : false);
         }
         this.sOnFavoriteCallback = callback;
@@ -60,15 +62,11 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //final Intent intent;
-                    //intent = new Intent(mContext, SomeActivity.class);
-
-                    //intent.putExtra("String", mStrings.get(getAdapterPosition()));
-                    //or
-                    //Bundle bundle = new Bundle();
-                    //intent.putExtras(bundle);
-
-                    //mContext.startActivity(intent);
+                    final Intent intent;
+                    intent = new Intent(mContext, ScrollingPostActivity.class);
+                    intent.putExtra("Content", mPosts.get(getAdapterPosition()).getContent().getRendered());
+                    intent.putExtra("Title", mPosts.get(getAdapterPosition()).getTitle().getRendered());
+                    mContext.startActivity(intent);
                 }
             });
         }
@@ -100,7 +98,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(RecyclerAdapter.ViewHolder viewHolder, int position) {
-        final String currentString = mStrings.get(position);
+        final Results currentPost = mPosts.get(position);
 
         TextView name = viewHolder.StringName;
         TextView description = viewHolder.StringDescription;
@@ -132,13 +130,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             }
         });
 
-        name.setText(currentString);
-        //description.setText();
+        name.setText(currentPost.getTitle().getRendered());
+        description.setText(Html.fromHtml(currentPost.getContent().getRendered()));
     }
 
     @Override
     public int getItemCount() {
-        return mStrings.size();
+        return mPosts.size();
     }
 
     public interface OnFavoriteListener {

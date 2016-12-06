@@ -9,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import org.smv.smvguide.R;
 
@@ -32,6 +33,8 @@ public class FragmentTwo extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        Toast.makeText(getActivity(), "Fragment Two",
+                Toast.LENGTH_LONG).show();
         return inflater.inflate(R.layout.fragment_two, container, false);
     }
 

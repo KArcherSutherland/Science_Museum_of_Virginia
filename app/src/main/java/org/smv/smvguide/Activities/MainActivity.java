@@ -145,7 +145,7 @@ public class MainActivity extends AppCompatActivity
                 iconResourceIds);
 
         viewPager.setAdapter(mTabsViewPagerAdapter);
-        viewPager.setOffscreenPageLimit(2);
+        viewPager.setOffscreenPageLimit(3);
         slidingTabLayout.setDistributeEvenly(true);
         slidingTabLayout.setViewPager(viewPager);
         slidingTabLayout.setSelectedIndicatorColors(Color.WHITE);
