@@ -51,7 +51,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         private MaterialIconView star;
         private ExplosionField mExplosionField;
 
-
         public ViewHolder(final View itemView) {
             super(itemView);
             StringName = (TextView) itemView.findViewById(R.id.itemName);

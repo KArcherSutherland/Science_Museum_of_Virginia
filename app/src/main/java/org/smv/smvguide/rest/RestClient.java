@@ -35,7 +35,7 @@ public class RestClient {
 
 
         private static OkHttpClient createClient(){
-            OkHttpClient client = new OkHttpClient();
+            OkHttpClient client = new OkHttpClient(); 
             client.interceptors().add(new Interceptor() {
                 @Override
                 public Response intercept(Chain chain) throws IOException {

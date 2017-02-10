@@ -20,6 +20,8 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.estimote.sdk.SystemRequirementsChecker;
+
 import org.smv.smvguide.R;
 import org.smv.smvguide.Adapters.TabsViewPagerAdapter;
 import org.smv.smvguide.Util.SlidingTabLayout;
@@ -180,4 +182,9 @@ public class MainActivity extends AppCompatActivity
         viewPager.setVisibility(View.VISIBLE);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        SystemRequirementsChecker.checkWithDefaultDialogs(this);
+    }
 }

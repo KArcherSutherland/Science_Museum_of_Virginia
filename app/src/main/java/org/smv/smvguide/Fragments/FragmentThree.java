@@ -33,8 +33,7 @@ public class FragmentThree extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        Toast.makeText(getActivity(), "Fragment Three",
-                Toast.LENGTH_LONG).show();
+
         return inflater.inflate(R.layout.fragment_three, container, false);
     }
 

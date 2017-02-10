@@ -62,7 +62,6 @@ public class FragmentOne extends Fragment implements RecyclerAdapter.OnFavoriteL
         getPosts();
         //setList();
 
-
         mSwipeRefreshLayout = (SwipeRefreshLayout) mView.findViewById(R.id.swipeRefreshLayout);
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -70,11 +69,6 @@ public class FragmentOne extends Fragment implements RecyclerAdapter.OnFavoriteL
                 refreshItems();
             }
         });
-
-
-
-        Toast.makeText(getActivity(), "Fragment One",
-                Toast.LENGTH_LONG).show();
 
         return mView;
     }
