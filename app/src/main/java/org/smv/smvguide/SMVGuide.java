@@ -16,6 +16,7 @@ import org.smv.smvguide.Activities.MainActivity;
 import org.smv.smvguide.Activities.ScrollingPostActivity;
 import org.smv.smvguide.rest.models.Results;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -25,6 +26,7 @@ import java.util.UUID;
 public class SMVGuide extends Application {
     private BeaconManager beaconManager;
     private List<Results> allPosts;
+    List<Region> regions;
 
     @Override
     public void onCreate() {
@@ -45,24 +47,31 @@ public class SMVGuide extends Application {
             }
         });
 
+        regions = new ArrayList<>();
+
         for (int i = 0; i < allPosts.size(); i++) {
-            final int index = i;
             if (allPosts.get(i).getAcf().getEstimote() != null) {
                 final String estimote = allPosts.get(i).getAcf().getEstimote();
                 if (!estimote.equals("1")) { //1 is the default value on a post before an estimote is assigned
-
-                    beaconManager.connect(new BeaconManager.ServiceReadyCallback() {
-                        @Override
-                        public void onServiceReady() {
-                            beaconManager.startMonitoring(new Region(
-                                    "monitored region",
-                                    UUID.fromString(estimote),
-                                    5, 5));
-                        }
-                    });
+                    regions.add(new Region(
+                            "monitored region",
+                            UUID.fromString(estimote),
+                            5, 5));
                 }
             }
+
         }
+
+
+        beaconManager.connect(new BeaconManager.ServiceReadyCallback() {
+                @Override
+                public void onServiceReady() {
+                    for (int i = 0; i < regions.size(); i++) {
+                        beaconManager.startMonitoring(regions.get(i));
+                    }
+                }
+        });
+
     }
 
     public void showNotification(String title, String message, String UUID) {

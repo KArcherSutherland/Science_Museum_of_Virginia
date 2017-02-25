@@ -130,7 +130,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         });
 
         name.setText(currentPost.getTitle().getRendered());
-        description.setText(Html.fromHtml(currentPost.getContent().getRendered()));
+       // description.setText(Html.fromHtml(currentPost.getContent().getRendered()));
     }
 
     @Override

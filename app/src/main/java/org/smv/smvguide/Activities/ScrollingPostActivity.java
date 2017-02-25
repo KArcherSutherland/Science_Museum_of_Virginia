@@ -7,6 +7,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
+import android.view.Display;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.TextView;
@@ -37,6 +38,9 @@ public class ScrollingPostActivity extends AppCompatActivity {
 
         final String mimeType = "text/html";
         final String encoding = "UTF-8";
+
+        mWeb.getSettings().setLoadWithOverviewMode(true);
+        mWeb.getSettings().setUseWideViewPort(true);
 
         mWeb.loadDataWithBaseURL("", content, mimeType, encoding, "");
 
