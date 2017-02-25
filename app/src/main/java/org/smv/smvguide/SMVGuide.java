@@ -13,6 +13,7 @@ import com.estimote.sdk.Region;
 import com.estimote.sdk.connection.internal.protocols.Operation;
 
 import org.smv.smvguide.Activities.MainActivity;
+import org.smv.smvguide.Activities.ScrollingPostActivity;
 import org.smv.smvguide.rest.models.Results;
 
 import java.util.List;
@@ -65,21 +66,39 @@ public class SMVGuide extends Application {
     }
 
     public void showNotification(String title, String message, String UUID) {
-        Intent notifyIntent = new Intent(this, MainActivity.class);
-        notifyIntent.putExtra("UUID", UUID);
-        notifyIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-        PendingIntent pendingIntent = PendingIntent.getActivities(this, 0,
-                new Intent[] { notifyIntent }, PendingIntent.FLAG_UPDATE_CURRENT);
-        Notification notification = new Notification.Builder(this)
-                .setSmallIcon(R.drawable.smallersmvlogo)
-                .setContentTitle(title)
-                .setContentText(message + UUID)
-                .setAutoCancel(true)
-                .setContentIntent(pendingIntent)
-                .build();
-        notification.defaults |= Notification.DEFAULT_SOUND;
-        NotificationManager notificationManager =
-                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        notificationManager.notify(1, notification);
+        /*final Intent intent;
+        intent = new Intent(mContext, ScrollingPostActivity.class);
+        intent.putExtra("Content", mPosts.get(getAdapterPosition()).getContent().getRendered());
+        intent.putExtra("Title", mPosts.get(getAdapterPosition()).getTitle().getRendered());
+        mContext.startActivity(intent);*/
+
+        Results post = null;
+        for (Results x: allPosts) {
+            if (x.getAcf().getEstimote().toUpperCase().equals(UUID.toUpperCase())) {
+                post = x;
+            }
+        }
+
+        if (post != null) {
+            String postTitle = post.getTitle().getRendered();
+            String postContent = post.getContent().getRendered();
+            Intent notifyIntent = new Intent(this, ScrollingPostActivity.class);
+            notifyIntent.putExtra("Content", postContent);
+            notifyIntent.putExtra("Title", postTitle);
+            notifyIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            PendingIntent pendingIntent = PendingIntent.getActivities(this, 0,
+                    new Intent[]{notifyIntent}, PendingIntent.FLAG_UPDATE_CURRENT);
+            Notification notification = new Notification.Builder(this)
+                    .setSmallIcon(R.drawable.smallersmvlogo)
+                    .setContentTitle(postTitle)
+                    .setContentText("Look!")
+                    .setAutoCancel(true)
+                    .setContentIntent(pendingIntent)
+                    .build();
+            notification.defaults |= Notification.DEFAULT_SOUND;
+            NotificationManager notificationManager =
+                    (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+            notificationManager.notify(1, notification);
+        }
     }
 }
