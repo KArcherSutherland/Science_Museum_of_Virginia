@@ -26,6 +26,16 @@ public class Results {
     private String id;
 */
 
+    private Acf acf;
+
+    public Acf getAcf() {
+        return acf;
+    }
+
+    public void setAcf(Acf acf) {
+        this.acf = acf;
+    }
+
     private Content content;
 
     public Content getContent ()

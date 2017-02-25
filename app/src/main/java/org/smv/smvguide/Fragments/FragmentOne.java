@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import org.smv.smvguide.Adapters.RecyclerAdapter;
 import org.smv.smvguide.R;
+import org.smv.smvguide.SMVGuide;
 import org.smv.smvguide.rest.PostService;
 import org.smv.smvguide.rest.RestClient;
 import org.smv.smvguide.rest.models.Results;
@@ -39,6 +40,7 @@ public class FragmentOne extends Fragment implements RecyclerAdapter.OnFavoriteL
     private List<String> exampleList;
     private ArrayList<Results> mList;
     private PostService mService;
+    SMVGuide mApplication;
 
     public FragmentOne() {
         // Required empty public constructor
@@ -69,6 +71,8 @@ public class FragmentOne extends Fragment implements RecyclerAdapter.OnFavoriteL
                 refreshItems();
             }
         });
+
+        mApplication = (SMVGuide) getActivity().getApplication();
 
         return mView;
     }
@@ -105,6 +109,8 @@ public class FragmentOne extends Fragment implements RecyclerAdapter.OnFavoriteL
             public void onResponse(Response<ArrayList<Results>> response, Retrofit retrofit) {
                 mList = response.body();
                 viewRecycler();
+                mApplication.startListening(mList);
+
                 //ArrayList<Results> posts = response.body.getPosts();
                 Log.d("mom get the camera", "  :D");
             }
