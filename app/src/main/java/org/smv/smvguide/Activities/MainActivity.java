@@ -139,8 +139,8 @@ public class MainActivity extends AppCompatActivity
     private void setupSlidingTabs() {
         int[] iconResourceIds = new int[] {
                 R.drawable.ic_menu_send,
-                R.drawable.ic_menu_send,
-                R.drawable.ic_menu_send
+                R.drawable.ic_menu_send//,
+       //         R.drawable.ic_menu_send
         };
 
         mTabsViewPagerAdapter = new TabsViewPagerAdapter(getSupportFragmentManager(),

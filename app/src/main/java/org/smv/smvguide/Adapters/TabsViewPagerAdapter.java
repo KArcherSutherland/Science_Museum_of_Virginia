@@ -26,24 +26,25 @@ public class TabsViewPagerAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
         if (0 == position) {
             return FragmentOne.newInstance();
-        } else if (1 == position) {
+        } else {//if (1 == position)
             return FragmentTwo.newInstance();
-        } else {
-            return FragmentThree.newInstance();
         }
+//        else {
+  //          return FragmentThree.newInstance();
+    //    }
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
         if(position == 0) {
-            return "Page 1";
+            return "Stories";
         }
-        else if(position == 1){
-            return "Page 2";
+        else {//if(position == 1)
+            return "Timeline";
         }
-        else{
-            return "Page 3";
-        }
+//        else{
+  //          return "Page 3";
+    //    }
     }
 
     @Override
