@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/SMVGuide.iml" filepath="$PROJECT_DIR$/SMVGuide.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/science-museum-of-virginia.iml" filepath="$PROJECT_DIR$/science-museum-of-virginia.iml" />
     </modules>
   </component>
 </project>
