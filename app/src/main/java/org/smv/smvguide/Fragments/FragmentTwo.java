@@ -70,6 +70,10 @@ public class FragmentTwo extends Fragment {
                                 + "element.parentNode.removeChild(element);" +
                                 "var element = document.getElementsByClassName('footer-wrapper')[0];"
                                 + "element.parentNode.removeChild(element);" +
+                                "var element = document.getElementsByClassName('entry-footer')[0];"
+                                + "element.parentNode.removeChild(element);" +
+                                "var element = document.getElementsByClassName('entry-header')[0];"
+                                + "element.parentNode.removeChild(element);" +
                                 "})()");
             }
         });
