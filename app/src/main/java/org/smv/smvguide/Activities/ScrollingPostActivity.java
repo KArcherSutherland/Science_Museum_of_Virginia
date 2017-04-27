@@ -24,6 +24,9 @@ public class ScrollingPostActivity extends AppCompatActivity {
 
     //@Bind(R.id.webView)
     //public WebView mWeb;
+
+    @Bind(R.id.backdrop)
+    public ImageView mBackdrop;
     
     @Bind(R.id.header1)
     public TextView mHeader1;
@@ -81,6 +84,7 @@ public class ScrollingPostActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
         Intent intent = getIntent();
         String title = intent.getStringExtra("Title");
 
@@ -93,6 +97,8 @@ public class ScrollingPostActivity extends AppCompatActivity {
 
         getSupportActionBar().setTitle(title);
 
+
+
         /*final String mimeType = "text/html";
         final String encoding = "UTF-8";
 
@@ -103,14 +109,14 @@ public class ScrollingPostActivity extends AppCompatActivity {
 
         //mtext.setText(Html.fromHtml(content));
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+/*        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                   //      .setAction("Action", null).show();
             }
-        });
+        });*/
     }
     
     public void stopDropOpenUpShop(){
@@ -212,6 +218,12 @@ public class ScrollingPostActivity extends AppCompatActivity {
                     .into(mImage5);
         } else {
             mImage5.setVisibility(View.GONE);
+        }
+
+        if (mainPost.getFeaturedappimage() != null && !mainPost.getFeaturedappimage().equals("") && !mainPost.getFeaturedappimage().equals("false")){
+            Picasso.with(this)
+                    .load(mainPost.getFeaturedappimage())
+                    .into(mBackdrop);
         }
 
         
