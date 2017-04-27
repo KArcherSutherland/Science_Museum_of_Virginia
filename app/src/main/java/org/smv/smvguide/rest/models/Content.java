@@ -1,15 +1,18 @@
 package org.smv.smvguide.rest.models;
 
+import org.parceler.Parcel;
+import org.parceler.ParcelConstructor;
+
 /**
  * Created by root on 12/5/16.
  */
 
-
+@Parcel
 public class Content
 {
-    //private String protected;
+    //public String protected;
 
-    private String rendered;
+    public String rendered;
 
 /*    public String getProtected ()
     {
@@ -36,4 +39,8 @@ public class Content
     {
         return "ClassPojo [protected = "+protected+", rendered = "+rendered+"]";
     }*/
+    @ParcelConstructor
+    public Content(String rendered) {
+        this.rendered = rendered;
+    }
 }

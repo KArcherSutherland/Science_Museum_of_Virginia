@@ -13,11 +13,16 @@ import retrofit.Retrofit;
 /**
  * Created by root on 2/10/17.
  */
+import org.parceler.Parcel;
+
+
 public class RequestObject {
 
     public RequestObject (Context context){
 
     }
+
+
 
 /*
     private void getPosts(){

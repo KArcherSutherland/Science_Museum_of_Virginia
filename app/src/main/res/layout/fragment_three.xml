@@ -4,10 +4,149 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="This really is a lot of filler text to get the hang of what an entire page or whatever will look like right about here. The photos are just going to go underneath because that&apos;s honestly the easiest way to do it, you know? So yeah some goog old fashioned plain text for this field is gonna be reallly nice. I mean there can be some formatting but preferably not photos because we want those to be some seperate objects."
+        android:id="@+id/header1"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="20dp" />
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Fragment Three"
-        android:id="@+id/textView4"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:text="New Text"
+        android:id="@+id/body1"
+        android:layout_alignParentTop="false"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/header1"
+        android:layout_margin="10dp"
+        android:textSize="20dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/image1"
+        android:layout_below="@+id/body1"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/header2"
+        android:layout_below="@+id/image1"
+        android:layout_centerHorizontal="true"
+        android:text="whst"
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/body2"
+        android:layout_below="@+id/header2"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:textSize="20dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/image2"
+        android:layout_below="@+id/body2"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/header3"
+        android:layout_below="@+id/image2"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/body3"
+        android:layout_below="@+id/header3"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:textSize="20dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/image3"
+        android:layout_below="@+id/header3"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/header4"
+        android:layout_below="@+id/image3"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/body4"
+        android:layout_below="@+id/header4"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:textSize="20dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/image4"
+        android:layout_below="@+id/body4"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/header5"
+        android:layout_below="@+id/image4"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/body5"
+        android:layout_below="@+id/header5"
+        android:layout_centerHorizontal="true"
+        android:textSize="20dp"
+        android:layout_margin="10dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/image5"
+        android:layout_below="@+id/body5"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp" />
+
 </RelativeLayout>

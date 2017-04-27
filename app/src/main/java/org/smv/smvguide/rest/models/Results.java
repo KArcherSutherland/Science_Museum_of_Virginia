@@ -3,30 +3,34 @@ package org.smv.smvguide.rest.models;
 /**
  * Created by root on 12/5/16.
  */
+import org.parceler.Parcel;
+import org.parceler.ParcelConstructor;
+
+@Parcel
 public class Results {
 /*
-    private String[] tags;
+    public String[] tags;
 
-    private String featured_media;
+    public String featured_media;
 
-    //private Excerpt excerpt;
+    //public Excerpt excerpt;
 
-    private String format;
+    public String format;
 
-    private String date;
+    public String date;
 
-    private String modified_gmt;
+    public String modified_gmt;
 
-    private String type;
+    public String type;
 
-    private String meta;
+    public String meta;
 
-    private String modified;
+    public String modified;
 
-    private String id;
+    public String id;
 */
 
-    private Acf acf;
+    public Acf acf;
 
     public Acf getAcf() {
         return acf;
@@ -36,31 +40,38 @@ public class Results {
         this.acf = acf;
     }
 
-    private Content content;
+    public Content content;
 
     public Content getContent ()
     {
         return content;
     }
 
-    private Title title;
+    public Title title;
 
     public Title getTitle ()
     {
         return title;
     }
 
-    /*private String author;
+    @ParcelConstructor
+    public Results(Acf acf, Content content, Title title) {
+        this.acf = acf;
+        this.content = content;
+        this.title = title;
+    }
 
-    private String sticky;
+    /*public String author;
 
-    private String date_gmt;
+    public String sticky;
 
-    private String[] categories;
+    public String date_gmt;
 
-    private String ping_status;
+    public String[] categories;
 
-    private String slug;
+    public String ping_status;
+
+    public String slug;
 
     public String[] getTags ()
     {

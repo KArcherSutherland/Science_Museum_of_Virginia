@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.text.Html;
 import android.view.LayoutInflater;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 import net.steamcrafted.materialiconlib.MaterialIconView;
 
 
+import org.parceler.Parcels;
 import org.smv.smvguide.Activities.ScrollingPostActivity;
 import org.smv.smvguide.R;
 import org.smv.smvguide.rest.models.Results;
@@ -62,9 +64,14 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                 @Override
                 public void onClick(View v) {
                     final Intent intent;
+                    Bundle bundle = new Bundle();
+
                     intent = new Intent(mContext, ScrollingPostActivity.class);
+                    bundle.putParcelable("post", Parcels.wrap(mPosts.get(getAdapterPosition()).getAcf()));
                     intent.putExtra("Content", mPosts.get(getAdapterPosition()).getContent().getRendered());
                     intent.putExtra("Title", mPosts.get(getAdapterPosition()).getTitle().getRendered());
+                    intent.putExtras(bundle);
+
                     mContext.startActivity(intent);
                 }
             });
