@@ -20,7 +20,7 @@ public class Acf {
     public String photo3;
     public String photo4;
     public String photo5;
-    public String teaser;
+    public String postexerpt;
     public String textbody1;
     public String textbody2;
     public String textbody3;
@@ -28,7 +28,7 @@ public class Acf {
     public String textbody5;
 
     @ParcelConstructor
-    public Acf(String estimote, String paragraph1head, String paragraph2head, String paragraph3head, String paragraph4head, String paragraph5head, String photo1, String photo2, String photo3, String photo4, String photo5, String teaser, String textbody1, String textbody2, String textbody3, String textbody4, String textbody5) {
+    public Acf(String estimote, String paragraph1head, String paragraph2head, String paragraph3head, String paragraph4head, String paragraph5head, String photo1, String photo2, String photo3, String photo4, String photo5, String postexerpt, String textbody1, String textbody2, String textbody3, String textbody4, String textbody5) {
         this.estimote = estimote;
         this.paragraph1head = paragraph1head;
         this.paragraph2head = paragraph2head;
@@ -40,7 +40,7 @@ public class Acf {
         this.photo3 = photo3;
         this.photo4 = photo4;
         this.photo5 = photo5;
-        this.teaser = teaser;
+        this.postexerpt = postexerpt;
         this.textbody1 = textbody1;
         this.textbody2 = textbody2;
         this.textbody3 = textbody3;
@@ -136,12 +136,12 @@ public class Acf {
         this.photo5 = photo5;
     }
 
-    public String getTeaser() {
-        return teaser;
+    public String getPostexerpt() {
+        return postexerpt;
     }
 
-    public void setTeaser(String teaser) {
-        this.teaser = teaser;
+    public void setPostexerpt(String postexerpt) {
+        this.postexerpt = postexerpt;
     }
 
     public String getTextbody1() {

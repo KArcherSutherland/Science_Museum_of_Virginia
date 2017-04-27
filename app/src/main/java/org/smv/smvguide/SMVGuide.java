@@ -6,12 +6,14 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 
 import com.estimote.sdk.Beacon;
 import com.estimote.sdk.BeaconManager;
 import com.estimote.sdk.Region;
 import com.estimote.sdk.connection.internal.protocols.Operation;
 
+import org.parceler.Parcels;
 import org.smv.smvguide.Activities.MainActivity;
 import org.smv.smvguide.Activities.ScrollingPostActivity;
 import org.smv.smvguide.rest.models.Results;
@@ -92,15 +94,19 @@ public class SMVGuide extends Application {
             String postTitle = post.getTitle().getRendered();
             String postContent = post.getContent().getRendered();
             Intent notifyIntent = new Intent(this, ScrollingPostActivity.class);
+
+            Bundle bundle = new Bundle();
+            bundle.putParcelable("post", Parcels.wrap(post.getAcf()));
             notifyIntent.putExtra("Content", postContent);
             notifyIntent.putExtra("Title", postTitle);
+            notifyIntent.putExtras(bundle);
             notifyIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
             PendingIntent pendingIntent = PendingIntent.getActivities(this, 0,
                     new Intent[]{notifyIntent}, PendingIntent.FLAG_UPDATE_CURRENT);
             Notification notification = new Notification.Builder(this)
                     .setSmallIcon(R.drawable.smallersmvlogo)
                     .setContentTitle(postTitle)
-                    .setContentText("Look!")
+                    .setContentText(post.getAcf().getPostexerpt())
                     .setAutoCancel(true)
                     .setContentIntent(pendingIntent)
                     .build();

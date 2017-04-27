@@ -137,6 +137,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         });
 
         name.setText(currentPost.getTitle().getRendered());
+        if (currentPost.getAcf().getPostexerpt() != null && !currentPost.getAcf().getPostexerpt().equals("false") && !currentPost.getAcf().getPostexerpt().equals("")){
+            description.setText(currentPost.getAcf().getPostexerpt());
+        }
        // description.setText(Html.fromHtml(currentPost.getContent().getRendered()));
     }
 
