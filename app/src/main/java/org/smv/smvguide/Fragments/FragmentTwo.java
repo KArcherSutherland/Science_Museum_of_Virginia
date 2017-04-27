@@ -57,10 +57,22 @@ public class FragmentTwo extends Fragment {
         // Inflate the layout for this fragment
         mView = inflater.inflate(R.layout.fragment_two, container, false);
         mWeb = (WebView) mView.findViewById(R.id.webView);
-        mWeb.setWebViewClient(new WebViewClient());
         mWeb.getSettings().setJavaScriptEnabled(true);
         mWeb.addJavascriptInterface(new MyJavaScriptInterface(), "HTMLOUT" );
 
+        mWeb.setWebViewClient(new WebViewClient(){
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+                mWeb.loadUrl(
+                        "javascript:(function() { " +
+                                "var element = document.getElementById('masthead');"
+                                + "element.parentNode.removeChild(element);" +
+                                "var element = document.getElementsByClassName('footer-wrapper')[0];"
+                                + "element.parentNode.removeChild(element);" +
+                                "})()");
+            }
+        });
 
         
         if (mWeb != null){
